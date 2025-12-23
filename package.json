@@ -1,5 +1,6 @@
 {
   "name": "ecommerce-frontend",
+<<<<<<< HEAD
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,4 +37,24 @@
       "last 1 safari version"
     ]
   }
+=======
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daya-0928/ecommerce-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/daya-0928/ecommerce-frontend/issues"
+  },
+  "homepage": "https://github.com/daya-0928/ecommerce-frontend#readme"
+>>>>>>> 14bb8066fca5a6a34ea946a6d60d44d2b0f553f8
 }
