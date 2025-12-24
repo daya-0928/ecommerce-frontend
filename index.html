@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Frontend</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Dress Shop</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Online Store</h1>
-    </header>
-    <script src="scripts/app.js"></script>
+
+<header class="navbar">
+    <div class="logo">Dress Shop</div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div></div><div></div><div></div>
+        </div>
+    </nav>
+</header>
+
+<section id="home" class="hero-section">
+    <h1>Welcome to Dress Shop</h1>
+    <p>Get your best outfits here 👗✨</p>
+</section>
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>New Arrival – Trendy Dresses 👗</h1>
+        <p>Explore the latest collection & enjoy exclusive offers!</p>
+        <a href="#products" class="btn-cta">Shop Now</a>
+    </div>
+</section>
+
+<section id="products" class="products-section">
+    <h2>Our Collection</h2>
+    <div class="product-container">
+        <div class="product-card">
+            <img src="https://picsum.photos/200/300?random=1" alt="Dress 1">
+            <h3>Elegant Dress</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://picsum.photos/200/300?random=2" alt="Dress 2">
+            <h3>Party Dress</h3>
+        </div>
+        <div class="product-card">
+            <img src="https://picsum.photos/200/300?random=3" alt="Dress 3">
+            <h3>Casual Dress</h3>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <p>📧 Contact us: dressshop@example.com</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
