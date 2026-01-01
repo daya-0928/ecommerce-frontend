@@ -1,11 +1,13 @@
 const productGrid = document.getElementById("product-grid");
 const loadingMsg = document.getElementById("loading-msg");
 const errorMsg = document.getElementById("error-msg");
-const cartCount = document.getElementById("cart-count");
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-updateCartCount();
+/* 🔥 UPDATE CART COUNT ON PAGE LOAD */
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+});
 
+/* FETCH PRODUCTS */
 fetch("https://dummyjson.com/products")
   .then(res => res.json())
   .then(data => {
@@ -43,6 +45,20 @@ function openProduct(id) {
   window.location.href = `product.html?id=${id}`;
 }
 
+/* 🔥 FINAL SAFE CART COUNT (NO NaN) */
 function updateCartCount() {
-  cartCount.textContent = cart.length;
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let totalQty = 0;
+  cart.forEach(item => {
+    const qty = Number(item.quantity);
+    if (!isNaN(qty)) {
+      totalQty += qty;
+    }
+  });
+
+  const cartCountEl = document.getElementById("cart-count");
+  if (cartCountEl) {
+    cartCountEl.textContent = totalQty;
+  }
 }

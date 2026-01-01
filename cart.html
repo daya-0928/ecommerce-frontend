@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dress Shop</title>
+  <title>Your Cart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
 </head>
@@ -13,32 +13,28 @@
   <div class="logo">Dress Shop</div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="#products">Products</a></li>
+    <li><a href="index.html#products">Products</a></li>
     <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
     <li><a href="login.html">Login</a></li>
   </ul>
 </header>
 
-<section id="home" class="hero-section">
-  <div class="hero-content">
-    <h1>Welcome to Dress Shop</h1>
-    <p>Get your best outfits here 👗✨</p>
-    <a href="#products" class="btn-cta">Shop Now</a>
-  </div>
-</section>
+<section class="cart-section">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
 
-<section id="products" class="products-section">
-  <h2>Our Collection</h2>
-  <p id="loading-msg">Loading products...</p>
-  <p id="error-msg" style="display:none;">Failed to load products</p>
-  <div id="product-grid" class="product-container"></div>
+  <div class="cart-summary">
+    <h3>Total: ₹ <span id="total-price">0</span></h3>
+    <a href="index.html" class="btn-secondary">Continue Shopping</a>
+    <button id="checkout-btn" class="btn-primary">Proceed to Checkout</button>
+  </div>
 </section>
 
 <footer>
   <p>📧 Contact us: dressshop@example.com</p>
 </footer>
 
-<script src="app.js"></script>
+<script src="cart.js"></script>
 <script src="firebase.js"></script>
 <script>
   firebase.auth().onAuthStateChanged(user => {
