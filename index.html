@@ -1,258 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dress Shop</title>
-
-    <!-- EMBEDRED CSS -->
-    <style>
-        /* ===== NAVBAR ===== */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #222;
-            color: white;
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #ffcc00;
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://picsum.photos/1200/700?fashion') center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
-        .hero-section h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-        }
-        .hero-section p {
-            font-size: 1.2rem;
-        }
-        .btn-cta {
-            display: inline-block;
-            background: #ff8800;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-size: 18px;
-            text-decoration: none;
-            margin-top: 12px;
-            transition: background 0.3s;
-        }
-        .btn-cta:hover {
-            background: #e76f00;
-        }
-
-        /* ===== PRODUCT GRID ===== */
-        .products-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            padding: 0 20px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .product-info {
-            padding: 12px;
-            text-align: center;
-        }
-        .product-info h3 {
-            font-size: 16px;
-            margin: 8px 0;
-        }
-        .product-info p {
-            font-size: 15px;
-            color: #444;
-            margin-bottom: 8px;
-        }
-        .product-info button {
-            background: #ff8800;
-            color: white;
-            padding: 8px 14px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-        .product-info button:hover {
-            background: #e76f00;
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-        }
-
-        /* ===== LOADING & ERROR ===== */
-        #loading-msg {
-            font-size: 18px;
-            color: #555;
-        }
-        #error-msg {
-            font-size: 18px;
-            color: red;
-            font-weight: bold;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 25px;
-        }
-    </style>
-
+  <meta charset="UTF-8">
+  <title>Dress Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="logo">Dress Shop</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#" id="cart-btn">Cart (<span id="cart-count">0</span>)</a></li>
-        </ul>
-    </header>
+<header class="navbar">
+  <div class="logo">Dress Shop</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#">Cart (<span id="cart-count">0</span>)</a></li>
+  </ul>
+</header>
 
-    <!-- HERO -->
-    <section id="home" class="hero-section">
-        <div>
-            <h1>Welcome to Dress Shop</h1>
-            <p>Get your best outfits here 👗✨</p>
-            <a href="#products" class="btn-cta">Shop Now</a>
-        </div>
-    </section>
+<section id="home" class="hero-section">
+  <div class="hero-content">
+    <h1>Welcome to Dress Shop</h1>
+    <p>Get your best outfits here 👗✨</p>
+    <a href="#products" class="btn-cta">Shop Now</a>
+  </div>
+</section>
 
-    <!-- PRODUCTS -->
-    <section id="products" class="products-section">
-        <h2>Our Collection</h2>
-        <p id="loading-msg">Loading products…</p>
-        <p id="error-msg" style="display:none;">Failed to load products.</p>
-        <div id="product-grid" class="product-container"></div>
-    </section>
+<section id="products" class="products-section">
+  <h2>Our Collection</h2>
+  <p id="loading-msg">Loading products...</p>
+  <p id="error-msg">Failed to load products</p>
+  <div id="product-grid" class="product-container"></div>
+</section>
 
-    <!-- FOOTER -->
-    <footer id="contact">
-        <p>📧 Contact us: dressshop@example.com</p>
-    </footer>
+<footer id="contact">
+  <p>📧 Contact us: dressshop@example.com</p>
+</footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // CART
-        let cart = [];
-        const cartCount = document.getElementById("cart-count");
-
-        function updateCartCount() {
-            cartCount.textContent = cart.length;
-        }
-
-        // PRODUCT FETCH and DISPLAY
-        const productGrid = document.getElementById("product-grid");
-        const loadingMsg = document.getElementById("loading-msg");
-        const errorMsg = document.getElementById("error-msg");
-
-        fetch("https://fakestoreapi.com/products")
-            .then(res => {
-                if (!res.ok) throw new Error("Network error");
-                return res.json();
-            })
-            .then(products => {
-                loadingMsg.style.display = "none";
-                displayProducts(products);
-                addCartEvents();
-            })
-            .catch(err => {
-                loadingMsg.style.display = "none";
-                errorMsg.style.display = "block";
-                console.error(err);
-            });
-
-        function displayProducts(products) {
-            productGrid.innerHTML = "";
-            products.forEach(product => {
-                const card = document.createElement("div");
-                card.className = "product-card";
-                card.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}" loading="lazy">
-                    <div class="product-info">
-                        <h3>${product.title}</h3>
-                        <p>₹ ${product.price.toFixed(2)}</p>
-                        <button>Add to Cart</button>
-                    </div>
-                `;
-                productGrid.appendChild(card);
-            });
-        }
-
-        function addCartEvents() {
-            document.querySelectorAll(".product-info button").forEach(btn => {
-                btn.addEventListener("click", () => {
-                    const card = btn.closest(".product-card");
-                    const title = card.querySelector("h3").textContent;
-                    const price = card.querySelector("p").textContent;
-                    const img = card.querySelector("img").src;
-
-                    cart.push({ title, price, img });
-                    updateCartCount();
-                    alert(`${title} added to cart!`);
-                });
-            });
-        }
-    </script>
-
+<script src="app.js"></script>
 </body>
 </html>
